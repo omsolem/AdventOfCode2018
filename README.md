@@ -1,21 +1,5 @@
 # AdventFrequency
 
-**TODO: Add description**
-
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `advent_frequency` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:advent_frequency, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/advent_frequency](https://hexdocs.pm/advent_frequency).
-
+## December 1 2018
+Implemented Step 1 - summing up all frequency changes. The input in in the file input.txt under assets.
+Implemented Step 2 - finding the first repeating frequency. Used a Agent to create a circular buffer for the frequencies.
