@@ -1,4 +1,4 @@
-defmodule AdventFrequency do
+defmodule Advent do
   def day1_step1() do
     Advent.Frequency.Finder.calculate_total()
   end
