@@ -38,8 +38,40 @@ defmodule Advent.BoxID do
 
   def differ_by_exactly_one_character(eq: id_before, del: char1, ins: _, eq: id_after) do
     case Enum.count(char1) == 1 do
-      true -> [id_before | id_after]
-      false -> nil
+      true ->
+        List.to_string(id_before ++ id_after)
+
+      false ->
+        ""
+    end
+  end
+
+  def differ_by_exactly_one_character(_) do
+    ""
+  end
+
+  def find_prototype_fabric() do
+    get_box_ids()
+    |> Enum.map(&String.to_charlist/1)
+    |> compare_ids([])
+    |> List.flatten()
+  end
+
+  def compare_ids([], common_chars), do: common_chars
+
+  def compare_ids([head | tail], common_chars) do
+    new_common_chars =
+      tail
+      |> Enum.reduce([], &compare_id(&2, head, &1))
+      |> List.flatten()
+
+    compare_ids(tail, [new_common_chars | common_chars])
+  end
+
+  def compare_id(acc, head, element) do
+    case differ_by_exactly_one_character(List.myers_difference(head, element)) do
+      "" -> acc
+      common_chars -> [common_chars | acc]
     end
   end
 end
