@@ -1,6 +1,6 @@
-defmodule AdventFrequency do
+defmodule Advent.Frequency.Finder do
   def calculate_total() do
-    AdventFrequency.Retriver.fetch()
+    Advent.Frequency.Retriver.fetch()
     |> Enum.sum()
   end
 
@@ -18,7 +18,7 @@ defmodule AdventFrequency do
          seen_frequencies,
          false
        ) do
-    new_current_frequency = current_fequency + AdventFrequency.Retriver.next()
+    new_current_frequency = current_fequency + Advent.Frequency.Retriver.next()
 
     first_frequency_twice(
       new_current_frequency,

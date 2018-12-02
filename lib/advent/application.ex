@@ -1,4 +1,4 @@
-defmodule AdventFrequency.Application do
+defmodule Advent.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -10,12 +10,12 @@ defmodule AdventFrequency.Application do
     children = [
       # Starts a worker by calling: AdventFrequency.Worker.start_link(arg)
       # {AdventFrequency.Worker, arg},
-      AdventFrequency.Retriver
+      Advent.Frequency.Retriver
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: AdventFrequency.Supervisor]
+    opts = [strategy: :one_for_one, name: Advent.Supervisor]
     Supervisor.start_link(children, opts)
   end
 end

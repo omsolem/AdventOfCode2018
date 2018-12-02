@@ -9,7 +9,7 @@ defmodule Advent.BoxID do
     |> Enum.reduce(1, fn x, acc -> x * acc end)
   end
 
-  def id_checksum(boxid) do
+  defp id_checksum(boxid) do
     String.split(boxid, "", trim: true)
     |> Enum.sort()
     |> Enum.reduce(%{}, &group_element(&2, &1))
@@ -19,24 +19,24 @@ defmodule Advent.BoxID do
     |> Enum.sort()
   end
 
-  def group_element(map, element) do
+  defp group_element(map, element) do
     {_, new_map} =
       Map.get_and_update(map, element, fn current_value -> increment_element(current_value) end)
 
     new_map
   end
 
-  def increment_element(nil), do: {nil, 1}
-  def increment_element(value), do: {value, value + 1}
+  defp increment_element(nil), do: {nil, 1}
+  defp increment_element(value), do: {value, value + 1}
 
-  def get_box_ids() do
-    "../../assets/input2.txt"
+  defp get_box_ids() do
+    "../../../assets/input2.txt"
     |> Path.expand(__DIR__)
     |> File.read!()
     |> String.split("\n")
   end
 
-  def differ_by_exactly_one_character(eq: id_before, del: char1, ins: _, eq: id_after) do
+  defp differ_by_exactly_one_character(eq: id_before, del: char1, ins: _, eq: id_after) do
     case Enum.count(char1) == 1 do
       true ->
         List.to_string(id_before ++ id_after)
@@ -46,7 +46,7 @@ defmodule Advent.BoxID do
     end
   end
 
-  def differ_by_exactly_one_character(_) do
+  defp differ_by_exactly_one_character(_) do
     ""
   end
 
@@ -57,9 +57,9 @@ defmodule Advent.BoxID do
     |> List.flatten()
   end
 
-  def compare_ids([], common_chars), do: common_chars
+  defp compare_ids([], common_chars), do: common_chars
 
-  def compare_ids([head | tail], common_chars) do
+  defp compare_ids([head | tail], common_chars) do
     new_common_chars =
       tail
       |> Enum.reduce([], &compare_id(&2, head, &1))
@@ -68,7 +68,7 @@ defmodule Advent.BoxID do
     compare_ids(tail, [new_common_chars | common_chars])
   end
 
-  def compare_id(acc, head, element) do
+  defp compare_id(acc, head, element) do
     case differ_by_exactly_one_character(List.myers_difference(head, element)) do
       "" -> acc
       common_chars -> [common_chars | acc]

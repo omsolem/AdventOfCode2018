@@ -1,4 +1,4 @@
-defmodule AdventFrequency.Retriver do
+defmodule Advent.Frequency.Retriver do
   use Agent
 
   def start_link(_) do
@@ -6,7 +6,7 @@ defmodule AdventFrequency.Retriver do
   end
 
   defp load() do
-    "../../assets/input.txt"
+    "../../../assets/input.txt"
     |> Path.expand(__DIR__)
     |> File.read!()
     |> String.split("\n")

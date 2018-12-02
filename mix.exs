@@ -1,9 +1,9 @@
-defmodule AdventFrequency.MixProject do
+defmodule Advent.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :advent_frequency,
+      app: :advent,
       version: "0.1.0",
       elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
@@ -14,7 +14,7 @@ defmodule AdventFrequency.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      mod: {AdventFrequency.Application, []}
+      mod: {Advent.Application, []}
     ]
   end
 
