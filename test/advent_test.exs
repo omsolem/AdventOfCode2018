@@ -17,4 +17,12 @@ defmodule AdventTest do
   test "Day 2 Step 2 - finding common chars for the correct IDs" do
     assert Advent.day2_step2() == ["krdmtuqjgwfoevnaboxglzjph"]
   end
+
+  test "Day 3 Step 1 - finding number of overlapping areas" do
+    assert Advent.Fabric.Plan.find_number_of_overlap() == 116_489
+  end
+
+  test "Day 2 Step 2 - finding non-overlapping claim ID" do
+    assert Advent.Fabric.Plan.find_nonoverlapping() == 1260
+  end
 end

@@ -14,4 +14,12 @@ defmodule Advent do
   def day2_step2() do
     Advent.BoxID.find_prototype_fabric()
   end
+
+  def day3_step1() do
+    Advent.Fabric.Plan.find_number_of_overlap()
+  end
+
+  def day3_step2() do
+    Advent.Fabric.Plan.find_nonoverlapping()
+  end
 end
