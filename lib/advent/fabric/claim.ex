@@ -3,7 +3,6 @@ defmodule Advent.Fabric.Claim do
 
   defstruct [:claim_id, :coordinates]
 
-  # 1 @ 817,273: 26x26
   def new(claim) do
     %{
       "claim_id" => claim_id,

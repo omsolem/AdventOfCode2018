@@ -22,4 +22,14 @@ defmodule Advent do
   def day3_step2() do
     Advent.Fabric.Plan.find_nonoverlapping()
   end
+
+  def day4_step1() do
+    {guard_id, minute, _total_sleeping} = Advent.Guard.Log.strategy1()
+    "Guard #{guard_id} sleeps very often at 00:#{minute} - the answer is #{guard_id * minute}"
+  end
+
+  def day4_step2() do
+    {guard_id, minute, times} = Advent.Guard.Log.strategy2()
+    "Guard #{guard_id} sleeps #{times} times at 00:#{minute} - the answer is #{guard_id * minute}"
+  end
 end

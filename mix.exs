@@ -19,6 +19,8 @@ defmodule Advent.MixProject do
   end
 
   defp deps do
-    []
+    [
+      {:nimble_parsec, "~> 0.4.0"}
+    ]
   end
 end
